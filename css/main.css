@@ -1,0 +1,1452 @@
+/* ────────────────────────────────────────────
+   FONTS
+───────────────────────────────────────────── */
+
+@font-face {
+  font-family: 'GothicNo60';
+  src: url('../fonts/Gothic60-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Geologica';
+  src: url('../fonts/Geologica_Auto-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ────────────────────────────────────────────
+   RESET
+───────────────────────────────────────────── */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: #fff8f0;
+  color: #2d1800;
+  font-family: 'Geologica', sans-serif;
+  font-weight: 200;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+img { display: block; max-width: 100%; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+video { display: block; }
+
+/* ────────────────────────────────────────────
+   TOKENS
+───────────────────────────────────────────── */
+
+:root {
+  --bg:    #fff8f0;
+  --text:  #2d1800;
+  --acc:   #c47229;
+  --btn:   #ffdfab;
+  --muted: rgba(46,24,0,.64);
+  --faint: rgba(46,24,0,.24);
+}
+
+/* ────────────────────────────────────────────
+   UTILITY CLASSES
+───────────────────────────────────────────── */
+
+.dfont {
+  font-family: 'GothicNo60', sans-serif;
+  font-weight: 400;
+}
+
+.body-text {
+  font-family: 'Geologica', sans-serif;
+  font-weight: 200;
+  font-size: 24px;
+  line-height: 1.45;
+  color: var(--text);
+}
+
+.sz120 {
+  font-size: 120px;
+  line-height: 144px;
+  color: var(--text);
+}
+
+.accent { color: var(--acc); }
+
+.accent-pill {
+  position: relative;
+  display: inline-block;
+}
+.accent-pill::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 100%;
+  background: var(--btn);
+  border-radius: 100px;
+  opacity: 0;
+  transition: opacity .2s;
+  z-index: -1;
+}
+.accent-pill:hover::after {
+  opacity: 1;
+}
+
+.link-accent {
+  color: var(--acc);
+  font-family: 'Geologica', sans-serif;
+  font-weight: 200;
+  transition: opacity .15s;
+}
+.link-accent:hover { opacity: .7; }
+
+/* ────────────────────────────────────────────
+   BUTTONS
+───────────────────────────────────────────── */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--btn);
+  color: var(--text);
+  font-family: 'Geologica', sans-serif;
+  font-weight: 200;
+  border-radius: 900px;
+  cursor: pointer;
+  transition: opacity .15s;
+  text-align: center;
+}
+.btn:hover { opacity: .85; }
+
+.btn--hero {
+  width: 600px;
+  height: 204px;
+  font-size: 36px;
+  letter-spacing: -.72px;
+  margin-top: 62px;
+}
+
+.btn--secondary {
+  flex-direction: column;
+  gap: 4px;
+  width: 248px;
+  height: 88px;
+  font-size: 22px;
+  letter-spacing: -.44px;
+  padding: 0 20px;
+}
+.btn--secondary img {
+  width: 28px;
+  height: auto;
+  opacity: .8;
+}
+
+.btn--cta-card {
+  display: flex;
+  width: 100%;
+  height: 204px;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  letter-spacing: -.72px;
+  font-family: 'Geologica', sans-serif;
+  font-weight: 200;
+  color: var(--text);
+  background: transparent;
+  transition: opacity .15s;
+}
+.btn--cta-card:hover { opacity: .85; }
+
+/* ────────────────────────────────────────────
+   SIDE DECORATION
+───────────────────────────────────────────── */
+
+.side-deco {
+  position: fixed;
+  left: 9px;
+  top: 36px;
+  width: 78px;
+  z-index: 90;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .4s;
+}
+.side-deco--visible {
+  opacity: 1;
+}
+.side-deco img {
+  width: 68px;
+  height: 404px;
+  object-fit: contain;
+}
+
+/* ────────────────────────────────────────────
+   SIDE NAV
+───────────────────────────────────────────── */
+
+.side-nav {
+  position: fixed;
+  left: 46px;
+  top: 225px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  transform: rotate(-90deg) translateX(-50%);
+  transform-origin: left center;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .4s;
+}
+.side-nav--visible {
+  opacity: 1;
+}
+
+.side-nav__link {
+  font-family: 'Geologica', sans-serif;
+  font-weight: 200;
+  font-size: 40px;
+  line-height: 1;
+  letter-spacing: -.8px;
+  color: var(--faint);
+  pointer-events: all;
+  transition: color .2s;
+}
+.side-nav__link--active { color: var(--text); }
+.side-nav__link:hover   { color: var(--text); }
+
+.side-nav__sep {
+  font-size: 40px;
+  line-height: 1;
+  color: var(--faint);
+  margin: 0 6px;
+  font-family: 'Geologica', sans-serif;
+  font-weight: 200;
+}
+
+/* ────────────────────────────────────────────
+   HERO
+───────────────────────────────────────────── */
+
+.hero {
+  height: 900px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero__content {
+  margin-left: 185px;
+  width: 1110px;
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  padding-top: 110px;
+  padding-bottom: 160px;
+}
+
+.hero__left {
+  width: 444px;
+  flex-shrink: 0;
+  padding-left: 39px;
+}
+
+.hero__photo-wrap {
+  width: 405px;
+  height: 541px;
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+.hero__photo {
+  width: 405px;
+  height: 541px;
+  object-fit: cover;
+}
+
+.hero__pills {
+  display: flex;
+  gap: 2px;
+  justify-content: center;
+}
+
+.pill {
+  font-family: 'Geologica', sans-serif;
+  font-weight: 200;
+  font-size: 18px;
+  line-height: 1;
+  color: var(--text);
+  background: var(--btn);
+  border-radius: 0 0 20px 20px;
+  padding: 7px 28px 10px 30px;
+  transition: opacity .15s;
+}
+.pill:hover { opacity: .8; }
+
+.hero__right {
+  width: 600px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0;
+  align-self: stretch;
+  padding-top: 53px;
+}
+
+.hero__titles { align-self: flex-start; margin-left: 60px; }
+
+.hero__name {
+  font-family: 'GothicNo60', sans-serif;
+  font-size: 70px;
+  line-height: 90px;
+  color: var(--text);
+}
+
+.hero__sub {
+  font-family: 'Geologica', sans-serif;
+  font-weight: 200;
+  font-size: 44px;
+  line-height: 0.8;
+  letter-spacing: -.88px;
+  color: var(--text);
+}
+
+.hero__links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin-top: 10px;
+}
+.hero__links .link-accent {
+  font-size: 16px;
+  line-height: 1.1;
+}
+
+/* ────────────────────────────────────────────
+   APPROACH
+───────────────────────────────────────────── */
+
+.approach {
+  overflow: visible;
+}
+
+/* 1. Heading: "мой" top-left + video center + "подход:" right */
+.approach__heading {
+  position: relative;
+  width: 1440px;
+  height: 300px;
+  padding-top: 50px;
+  overflow: visible;
+}
+
+.approach__moy {
+  position: absolute;
+  left: 233px;
+  top: 26px;
+  z-index: 1;
+  font-family: 'GothicNo60', sans-serif;
+  font-size: 120px;
+  line-height: 144px;
+  color: var(--text);
+}
+
+.approach__heading-left {
+  position: absolute;
+  left: 433px;
+  top: 96px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.approach__video-box {
+  width: 262px;
+  height: 180px;
+  border-radius: 40px;
+  overflow: hidden;
+  background: var(--btn);
+}
+.approach__video-box video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.approach__video-label {
+  font-family: 'Geologica', sans-serif;
+  font-weight: 200;
+  font-size: 16px;
+  line-height: 0.95;
+  color: var(--muted);
+  text-align: center;
+  width: 278px;
+}
+
+.approach__podhod {
+  position: absolute;
+  left: 685px;
+  top: 152px;
+  font-family: 'GothicNo60', sans-serif;
+  font-size: 120px;
+  line-height: 144px;
+  color: var(--text);
+}
+
+/* 2. Row 1: hands (x=197,y=1200) + text (x=787,y=1379) */
+.approach__row--1 {
+  position: relative;
+  width: 1440px;
+  height: 475px;
+  margin-top: 0;
+}
+
+.approach__hands {
+  position: absolute;
+  left: 197px;
+  top: 0;
+  width: 500px;
+  height: 553px;
+  object-fit: contain;
+}
+
+.approach__text-r {
+  position: absolute;
+  left: 694px;
+  top: 179px;
+  width: 590px;
+  line-height: 1.3;
+}
+
+/* 3. Row 2: text (x=235,y=1731) + bird (x=770,y=1582) */
+.approach__row--2 {
+  position: relative;
+  width: 1440px;
+  height: 468px;
+  margin-top: -93px;
+}
+
+.approach__text-l {
+  position: absolute;
+  left: 235px;
+  top: 149px;
+  width: 460px;
+  line-height: 1.3;
+}
+
+.approach__bird {
+  position: absolute;
+  left: 770px;
+  top: 0;
+  width: 444px;
+  height: 468px;
+  object-fit: contain;
+}
+
+/* 4. Method: starts at y=1930 */
+.approach__method {
+  position: relative;
+  width: 1440px;
+  margin-top: -120px;
+  padding-top: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.approach__method-pre {
+  margin-left: 236px;
+  font-size: 24px;
+  line-height: 28.8px;
+}
+
+.approach__psychodrama {
+  margin-left: 311px;
+}
+
+.approach__method-p1 {
+  margin-left: 240px;
+  width: 670px;
+  margin-top: 14px;
+}
+.approach__method-p2 {
+  margin-left: 399px;
+  width: 743px;
+  margin-top: 25px;
+}
+.approach__method-p1,
+.approach__method-p2 {
+  font-size: 24px;
+  line-height: 28.8px;
+}
+
+/* 5. Quote: y=2641, h=660 */
+.approach__quote {
+  position: relative;
+  width: 1440px;
+  height: 660px;
+  overflow: hidden;
+}
+
+.approach__blob {
+  position: absolute;
+  left: 68px;
+  top: 27px;
+  width: 1333px;
+  height: 619px;
+  object-fit: contain;
+}
+
+.approach__quote-text {
+  position: absolute;
+  left: 176px;
+  top: 150px;
+  width: 1088px;
+  font-family: 'GothicNo60', sans-serif;
+  font-size: 60px;
+  line-height: 72px;
+  color: var(--text);
+  text-align: center;
+}
+
+/* 6. CTAs: y=3301, two buttons w=482 h=191 */
+.approach__ctas {
+  position: relative;
+  width: 1440px;
+  padding: 45px 0;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.btn--secondary {
+  width: 482px;
+  height: auto;
+  min-height: 191px;
+  border-radius: 40px;
+  font-size: 36px;
+  line-height: 25.2px;
+  letter-spacing: 0;
+  padding: 60px 0 49px;
+  flex-direction: column;
+  gap: 14px;
+  align-items: center;
+  justify-content: flex-start;
+}
+.btn--secondary span { display: block; }
+.btn--secondary img {
+  width: 59px;
+  height: 28px;
+  object-fit: contain;
+  opacity: 1;
+}
+
+/* ────────────────────────────────────────────
+   CHILDREN
+───────────────────────────────────────────── */
+
+.white-block {
+  background: #fff;
+  border-radius: 380px;
+}
+
+.children {
+}
+
+.children__wrap {
+  padding: 130px 230px 0;
+}
+
+.children__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding-top: 12px;
+  gap: 0;
+}
+
+.children__header-text {
+  flex: 1;
+  padding-right: 0;
+}
+
+.ch-pretitle {
+  font-size: 40px;
+  line-height: 0px;
+  color: var(--text);
+  padding-left: 0px;
+}
+
+.ch-title {
+  font-size: 120px;
+  line-height: 144px;
+  color: var(--text);
+}
+
+.ch-subtitle {
+  font-size: 40px;
+  line-height: 40px;
+  color: var(--text);
+}
+
+.ch-intro {
+  font-size: 22px;
+  line-height: 26.4px;
+  margin-top: 25px;
+  width: 601px;
+  font-family: 'Geologica', sans-serif;
+  font-weight: 200;
+  color: var(--text);
+}
+
+.children__header-photo {
+  flex-shrink: 0;
+  /* photo at x=981, content left=230, so from header left = 981-230=751. header-text width≈600+17gap=617. photo left = header total 980-348=632 from content. Let's align to right edge */
+}
+
+.ch-photo {
+  width: 348px;
+  height: 380px;
+  object-fit: cover;
+  border-radius: 100px;
+  display: block;
+}
+
+.children__faq {
+  padding-top: 104px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.children__q {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-top: 61px;
+}
+.children__q:first-child { padding-top: 0; }
+
+.ch-q-title {
+  font-size: 40px;
+  line-height: 40px;
+  color: var(--text);
+}
+
+.children__q .body-text {
+  font-size: 22px;
+  line-height: 26.4px;
+  width: 900px;
+}
+
+.children__q--illus {
+  position: relative;
+}
+
+.children__q--illus .ch-q-title {
+  width: 571px;
+}
+
+.ch-illus-big {
+  position: absolute;
+  top: -100px;
+  left: 734px;
+  width: 348px;
+  height: 621px;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.children__q--two-col {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 42px;
+}
+.ch-two-left {
+  flex-shrink: 0;
+  width: 386px;
+}
+.ch-two-right { flex: 1; }
+
+.children__list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.children__list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.bullet-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+.children__list li span {
+  font-family: 'Geologica', sans-serif;
+  font-weight: 200;
+  font-size: 22px;
+  line-height: 26.4px;
+  color: var(--text);
+}
+
+.children__parents {
+  padding-top: 61px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.children__parents .ch-q-title { width: 610px; }
+.children__parents .body-text {
+  font-size: 22px;
+  line-height: 26.4px;
+  width: 900px;
+}
+
+.children__consult {
+  position: relative;
+  padding-top: 61px;
+  min-height: 350px;
+  margin-bottom: 0;
+}
+
+.ch-blob {
+  position: absolute;
+  left: 310px;
+  top: 55px;
+  width: 660px;
+  height: auto;
+  object-fit: contain;
+}
+
+.ch-deco {
+  position: absolute;
+  left: -39px;
+  top: 10px;
+  width: 1027px;
+  height: 324px;
+  object-fit: contain;
+}
+
+.ch-consult-text {
+  position: absolute;
+  left: 365px;
+  top: 88px;
+  width: 560px;
+  font-size: 22px;
+  line-height: 26.4px;
+  font-family: 'Geologica', sans-serif;
+  font-weight: 200;
+  color: var(--text);
+}
+
+/* ────────────────────────────────────────────
+   PRICING
+───────────────────────────────────────────── */
+
+.pricing {
+}
+
+.pricing__wrap {
+  margin: 0 224px;
+  padding-top: 50px;
+  padding-bottom: 60px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pricing__deco {
+  position: absolute;
+  left: -33px;
+  top: 0;
+  width: 1027px;
+  height: 324px;
+  pointer-events: none;
+  z-index: -1;
+}
+.pricing__deco img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.pricing__title {
+  font-size: 40px;
+  line-height: 40px;
+  letter-spacing: -.8px;
+  color: var(--text);
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+
+.pricing__card {
+  background: var(--btn);
+  border-radius: 37px;
+  min-height: 195px;
+  display: flex;
+  align-items: center;
+}
+
+.pricing__card-l {
+  padding-left: 68px;
+  width: 300px;
+  flex-shrink: 0;
+}
+
+.pricing__card-r { flex: 1; }
+
+.pricing__price {
+  font-family: 'Geologica', sans-serif;
+  font-weight: 300;
+  font-size: 36px;
+  line-height: 36px;
+  color: var(--text);
+}
+
+.pricing__type {
+  font-family: 'Geologica', sans-serif;
+  font-weight: 200;
+  font-size: 24px;
+  line-height: 24px;
+  color: var(--text);
+  margin-top: 2px;
+}
+
+.pricing__desc, .pricing__loc {
+  font-family: 'Geologica', sans-serif;
+  font-weight: 200;
+  font-size: 24px;
+  line-height: 29px;
+  color: var(--text);
+}
+
+.pricing__card--group {
+  border-radius: 40px;
+  min-height: 237px;
+  align-items: center;
+}
+
+.pricing__group-label {
+  font-family: 'Geologica', sans-serif;
+  font-weight: 200;
+  font-size: 36px;
+  line-height: 0.9;
+  color: var(--text);
+}
+
+.pricing__card--cta {
+  border-radius: 900px;
+  min-height: 204px;
+  padding: 0;
+  background: var(--btn);
+  transition: opacity .15s;
+}
+.pricing__card--cta:hover { opacity: .85; }
+
+/* ────────────────────────────────────────────
+   FOOTER
+───────────────────────────────────────────── */
+
+.footer {
+  text-align: center;
+  padding: 40px 20px 40px;
+}
+.footer p {
+  font-family: 'Geologica', sans-serif;
+  font-weight: 200;
+  font-size: 18px;
+  color: rgba(46, 24, 0, 0.38);
+}
+
+/* ────────────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────────────── */
+
+@media (max-width: 900px) {
+  .side-deco, .side-nav { display: none; }
+
+  /* HERO */
+  .hero {
+    height: auto;
+    padding: 16px 16px 0;
+    align-items: flex-start;
+  }
+  .hero__content {
+    margin-left: 0;
+    width: 100%;
+    flex-direction: column;
+    gap: 0;
+    padding-top: 0;
+    padding-bottom: 40px;
+    align-items: flex-start;
+  }
+  .hero__left {
+    width: 100%;
+    padding-left: 0;
+  }
+  .hero__photo-wrap {
+    width: 100%;
+    height: 300px;
+    border-radius: 30px;
+  }
+  .hero__photo {
+    width: 100%;
+    height: 300px;
+  }
+  .hero__pills {
+    gap: 8px;
+    margin-top: 0;
+  }
+  .pill {
+    font-size: 16px;
+    border-radius: 0 0 16px 16px;
+    padding: 6px 20px 8px;
+  }
+  .hero__right {
+    width: 100%;
+    align-items: flex-start;
+    gap: 20px;
+    padding-top: 20px;
+  }
+  .hero__titles { align-self: flex-start; }
+  .hero__name { font-size: 48px; line-height: 1.1; }
+  .hero__sub  { font-size: 30px; letter-spacing: -.3px; }
+  .btn--hero  { width: 100%; height: 80px; font-size: 22px; }
+  .hero__links { gap: 6px; }
+  .hero__links .link-accent { font-size: 14px; }
+
+  /* APPROACH */
+  .sz120 { font-size: 60px; line-height: 1.1; }
+  .body-text { font-size: 18px; line-height: 1.5; }
+
+  .approach { overflow: visible; padding: 0 16px; }
+
+  /* heading: "мой" top full-width, then "подход:" on left + video on right */
+  .approach__heading {
+    position: static;
+    width: 100%;
+    height: auto;
+    padding-top: 40px;
+    overflow: visible;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    column-gap: 12px;
+    row-gap: 0;
+  }
+  .approach__moy {
+    position: static;
+    font-size: 72px;
+    line-height: 1.1;
+    grid-column: 1 / 3;
+    grid-row: 1;
+  }
+  .approach__heading-left {
+    position: static;
+    grid-column: 2;
+    grid-row: 2;
+    align-self: center;
+    gap: 6px;
+  }
+  .approach__video-box {
+    width: 120px;
+    height: 82px;
+    border-radius: 16px;
+  }
+  .approach__video-label {
+    font-size: 12px;
+    width: 120px;
+    line-height: 1.3;
+  }
+  .approach__podhod {
+    position: static;
+    font-size: 72px;
+    line-height: 1.1;
+    grid-column: 1;
+    grid-row: 2;
+    align-self: center;
+  }
+
+  /* rows: stacked cards with bg */
+  .approach__row--1 {
+    position: static;
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    background: var(--btn);
+    border-radius: 30px;
+    padding: 24px 20px;
+  }
+  .approach__hands {
+    position: static;
+    width: 120px;
+    height: auto;
+    flex-shrink: 0;
+    order: 2;
+  }
+  .approach__text-r {
+    position: static;
+    left: auto;
+    top: auto;
+    width: auto;
+    flex: 1;
+    order: 1;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .approach__row--2 {
+    position: static;
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    background: var(--btn);
+    border-radius: 30px;
+    padding: 24px 20px;
+  }
+  .approach__text-l {
+    position: static;
+    left: auto;
+    top: auto;
+    width: auto;
+    flex: 1;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .approach__bird {
+    position: static;
+    width: 100px;
+    height: auto;
+    flex-shrink: 0;
+  }
+
+  .approach__method {
+    position: static;
+    width: 100%;
+    margin-top: 0;
+    padding-top: 36px;
+  }
+  .approach__method-pre {
+    margin-left: 0;
+    font-size: 18px;
+  }
+  .approach__psychodrama {
+    margin-left: 0;
+    font-size: 60px;
+    line-height: 1.1;
+  }
+  .approach__method-p1 {
+    margin-left: 0;
+    width: 100%;
+    margin-top: 16px;
+    font-size: 18px;
+    line-height: 1.5;
+  }
+  .approach__method-p2 {
+    margin-left: 0;
+    width: 100%;
+    margin-top: 14px;
+    font-size: 18px;
+    line-height: 1.5;
+  }
+
+  .approach__quote {
+    position: relative;
+    width: calc(100% + 32px);
+    margin-left: -16px;
+    height: auto;
+    min-height: 400px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .approach__blob {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .approach__quote-text {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    font-size: 32px;
+    line-height: 1.2;
+    text-align: center;
+    padding: 60px 24px;
+    left: auto;
+    top: auto;
+  }
+
+  .approach__ctas {
+    position: static;
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 20px 0 40px;
+  }
+  .btn--secondary {
+    width: 100%;
+    height: 70px;
+    font-size: 20px;
+    border-radius: 20px;
+    padding: 0 20px;
+    flex-direction: row;
+    gap: 10px;
+  }
+  .btn--secondary img {
+    width: 36px;
+    height: auto;
+  }
+
+  /* CHILDREN */
+  .white-block { border-radius: 50px; }
+  .children__wrap { padding: 40px 20px 40px; }
+  .children__header { flex-direction: column; gap: 20px; }
+  .children__header-text { width: 100%; }
+  .ch-pretitle { font-size: 28px; line-height: 1.1; padding-left: 0; }
+  .ch-title    { font-size: 72px; line-height: 1; }
+  .ch-subtitle { font-size: 28px; line-height: 1.2; }
+  .ch-intro    { width: 100%; font-size: 16px; line-height: 1.5; margin-top: 16px; }
+  .ch-photo    { width: 100%; height: 320px; border-radius: 30px; object-fit: cover; }
+
+  .children__faq { padding-top: 40px; }
+  .children__q { padding-top: 32px; gap: 16px; }
+  .ch-q-title  { font-size: 26px; line-height: 1.2; width: 100%; }
+  .children__q .body-text { width: 100%; font-size: 16px; line-height: 1.5; }
+  .children__q--two-col { flex-direction: column; gap: 16px; }
+  .ch-two-left { width: 100%; }
+  .ch-two-right { width: 100%; }
+  .children__list li span { font-size: 16px; line-height: 1.5; }
+
+  .children__parents { padding-top: 32px; gap: 16px; }
+  .children__parents .ch-q-title { width: 100%; }
+  .children__parents .body-text { width: 100%; font-size: 16px; line-height: 1.5; }
+
+  .children__consult { position: static; min-height: auto; padding-top: 32px; }
+  .ch-deco { display: none; }
+  .ch-blob { display: none; }
+  .ch-consult-text { position: static; width: 100%; font-size: 16px; line-height: 1.5; }
+
+  /* PRICING */
+  .pricing__wrap  { margin: 0 16px; padding-top: 36px; padding-bottom: 40px; }
+  .pricing__deco  { display: none; }
+  .pricing__title { font-size: 32px; margin-top: 0; }
+  .pricing__card  { flex-direction: column; align-items: flex-start; padding: 24px 20px; min-height: auto; border-radius: 24px; }
+  .pricing__card-l { padding-left: 0; width: 100%; }
+  .pricing__card-r { margin-top: 10px; }
+  .pricing__price { font-size: 28px; }
+  .pricing__type  { font-size: 18px; }
+  .pricing__desc, .pricing__loc { font-size: 18px; line-height: 1.5; }
+  .pricing__card--group { padding: 24px 20px; }
+  .pricing__group-label { font-size: 18px; }
+  .btn--cta-card { height: 80px; font-size: 22px; }
+  .pricing__card--cta { min-height: 80px; }
+}
+
+@media (max-width: 400px) {
+  .hero__name { font-size: 40px; }
+  .hero__sub  { font-size: 26px; }
+  .approach__moy, .approach__podhod { font-size: 56px; }
+  .approach__psychodrama { font-size: 48px; }
+  .approach__quote-text { font-size: 26px; }
+  .ch-title { font-size: 60px; }
+  .approach__video-box { width: 110px; height: 76px; }
+  .approach__video-label { width: 110px; }
+}
+
+/* ────────────────────────────────────────────
+   PILL BUTTONS (hero)
+───────────────────────────────────────────── */
+
+button.pill {
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* ────────────────────────────────────────────
+   CTA ACCORDION BUTTONS
+───────────────────────────────────────────── */
+
+.btn--secondary {
+  /* already defined above, extends here */
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+  font-family: 'Geologica', sans-serif;
+  font-weight: 200;
+  color: var(--text);
+  text-align: center;
+  transition: opacity .15s;
+}
+.btn--secondary:hover { opacity: .85; }
+
+.cta-label {
+  display: block;
+  font-size: 36px;
+  line-height: 25.2px;
+  letter-spacing: 0;
+}
+
+.cta-icon {
+  width: 59px;
+  height: 28px;
+  object-fit: contain;
+  transition: transform .4s cubic-bezier(.4,0,.2,1);
+  flex-shrink: 0;
+}
+
+.cta-body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0 24px;
+  width: 100%;
+  text-align: left;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .35s cubic-bezier(.4,0,.2,1), padding .35s cubic-bezier(.4,0,.2,1);
+}
+.cta-body p {
+  font-family: 'Geologica', sans-serif;
+  font-weight: 200;
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--text);
+}
+
+/* expanded state */
+.btn--secondary[aria-expanded="true"] .cta-icon {
+  transform: rotate(180deg);
+}
+.btn--secondary[aria-expanded="true"] .cta-body {
+  max-height: 600px;
+  padding: 20px 24px 0;
+}
+.btn--secondary[aria-expanded="true"] {
+  padding-bottom: 40px;
+}
+
+/* ────────────────────────────────────────────
+   POPUPS
+───────────────────────────────────────────── */
+
+.popup-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(222, 111, 0, 0.3);
+  z-index: 200;
+  overflow-y: auto;
+}
+
+.popup-overlay.is-open {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 60px;
+}
+
+/* education popup: x=398, w=665 */
+.popup-panel--edu {
+  position: relative;
+  flex-shrink: 0;
+  margin-top: 39px;
+  margin-left: 398px;
+  width: 665px;
+  min-height: 600px;
+  background: #fff;
+  border-radius: 60px;
+  padding: 50px 50px 60px;
+  box-shadow: 0 4px 40px rgba(0,0,0,.08);
+}
+
+/* about popup: x=414, w=613 */
+.popup-panel--about {
+  position: relative;
+  flex-shrink: 0;
+  margin-top: 88px;
+  margin-left: 414px;
+  width: 613px;
+  background: #fff;
+  border-radius: 60px;
+  padding: 40px 46px 50px;
+  box-shadow: 0 4px 40px rgba(0,0,0,.08);
+}
+
+.popup-close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  line-height: 0;
+  opacity: .7;
+  transition: opacity .15s;
+}
+.popup-close:hover { opacity: 1; }
+
+.popup-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.popup-section-title {
+  font-family: 'Geologica', sans-serif;
+  font-weight: 200;
+  font-size: 18px;
+  line-height: 1.4;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  margin-top: 20px;
+}
+.popup-section-title:first-child { margin-top: 0; }
+
+.popup-section-title--dfont {
+  font-family: 'GothicNo60', sans-serif;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 1.1;
+  color: var(--text);
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.popup-text {
+  font-family: 'Geologica', sans-serif;
+  font-weight: 200;
+  font-size: 24px;
+  line-height: 1.45;
+  color: var(--text);
+}
+.popup-text--bold {
+  font-weight: 300;
+}
+
+.popup-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-left: 0;
+  list-style: none;
+}
+.popup-list li {
+  font-family: 'Geologica', sans-serif;
+  font-weight: 200;
+  font-size: 22px;
+  line-height: 1.45;
+  color: var(--text);
+  padding-left: 20px;
+  position: relative;
+}
+.popup-list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--acc);
+}
+
+.popup-list--bullet li::before {
+  content: '•';
+}
+
+/* фото в попапе "обо мне" */
+.popup-about-photo {
+  display: block;
+  width: 180px;
+  height: auto;
+  border-radius: 20px;
+  margin: 28px auto 0;
+}
+
+/* лента фото в попапе образование */
+.edu-ribbon-wrap {
+  margin-top: 32px;
+  overflow: hidden;
+  border-radius: 14px;
+}
+
+.edu-ribbon {
+  display: flex;
+  gap: 12px;
+  width: max-content;
+  animation: ribbon-scroll 20s linear infinite;
+}
+
+.edu-ribbon-img {
+  height: 140px;
+  width: auto;
+  border-radius: 12px;
+  display: block;
+  flex-shrink: 0;
+}
+
+@keyframes ribbon-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* кнопка "часы обучения" */
+.edu-hours-btn {
+  display: inline-block;
+  margin-top: 20px;
+  font-family: 'Geologica', sans-serif;
+  font-weight: 200;
+  font-size: 16px;
+  color: var(--text);
+  border: 1px solid rgba(45,24,0,0.3);
+  border-radius: 100px;
+  padding: 8px 20px;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+.edu-hours-btn:hover { opacity: 0.6; }
+
+/* mobile popup */
+@media (max-width: 900px) {
+  .popup-overlay { padding: 20px 16px; }
+  .popup-panel--edu,
+  .popup-panel--about {
+    width: 100%;
+    margin: 0;
+    border-radius: 30px;
+    padding: 32px 24px 40px;
+  }
+  .popup-text { font-size: 18px; }
+  .popup-list li { font-size: 18px; }
+  .btn--secondary[aria-expanded="true"] { min-height: auto; }
+  .cta-label { font-size: 20px; }
+}
