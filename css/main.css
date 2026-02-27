@@ -23,7 +23,9 @@
 ───────────────────────────────────────────── */
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+}
 body {
   background: #fff8f0;
   color: #2d1800;
@@ -31,6 +33,20 @@ body {
   font-weight: 200;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+}
+
+/* desktop centering: при экране уже 1440px контент остаётся по центру */
+@media (min-width: 901px) {
+  html {
+    background: #fff8f0;
+    display: flex;
+    justify-content: center;
+  }
+  body {
+    width: 1440px;
+    min-width: 1440px;
+    overflow-x: visible;
+  }
 }
 img { display: block; max-width: 100%; }
 a { text-decoration: none; color: inherit; }
