@@ -50,14 +50,14 @@
   function openPopup(id) {
     const overlay = document.getElementById(id);
     if (!overlay) return;
+    document.documentElement.classList.add('popup-open');
     overlay.classList.add('is-open');
-    document.body.style.overflow = 'hidden';
     overlay.focus();
   }
 
   function closeAll() {
     overlays.forEach(o => o.classList.remove('is-open'));
-    document.body.style.overflow = '';
+    document.documentElement.classList.remove('popup-open');
   }
 
   triggers.forEach(btn => {

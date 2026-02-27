@@ -29,7 +29,7 @@
         <div class="hero__photo-wrap">
           <img class="hero__photo" src="images/hero.jpg" alt="Анастасия, психолог">
         </div>
-        <div class="hero__pills">
+        <div class="hero__pills hero__pills--desktop">
           <button class="pill" data-popup="popup-edu">образование</button>
           <button class="pill" data-popup="popup-about">обо мне</button>
         </div>
@@ -40,9 +40,13 @@
           <p class="hero__sub">психолог</p>
           <p class="hero__sub">для <a href="#child" class="accent accent-pill">детей</a> и <a href="#adult-1" class="accent accent-pill">взрослых</a></p>
         </div>
+        <div class="hero__pills hero__pills--mobile">
+          <button class="pill" data-popup="popup-edu">образование</button>
+          <button class="pill" data-popup="popup-about">обо мне</button>
+        </div>
         <a href="https://t.me/astasi" class="btn btn--hero" target="_blank" rel="noopener">записаться</a>
         <div class="hero__links">
-          <a href="https://docs.google.com/document/d/1R2XzaYgtBaT9LcPL2IeynoeLdT1jr1Uqf8MMQknL3fQ/edit" class="link-accent" target="_blank" rel="noopener">Информированное согласие</a>
+          <a href="https://docs.google.com/document/d/1R2XzaYgtBaT9LcPL2IeynoeLdT1jr1Uqf8MMQknL3fQ/edit" class="link-accent" target="_blank" rel="noopener">Информированное согласие →</a>
           <a href="#pricemob" class="link-accent">Сколько стоит?</a>
         </div>
       </div>
@@ -67,7 +71,7 @@
 
     <div class="approach__row approach__row--1">
       <img src="images/illustration-bird-1.png" alt="" aria-hidden="true" class="approach__hands">
-      <p class="body-text approach__text-r">Ваш главный эксперт — вы&nbsp;сами. <br>Моя цель — не&nbsp;давать готовых ответов или&nbsp;советов, а&nbsp;помочь вам найти свои собственные решения. Вместе мы&nbsp;исследуем, как&nbsp;внедрить изменения в&nbsp;вашу жизнь мягко и&nbsp;бережно, без&nbsp;насилия над&nbsp;вашим<br> внутренним миром.</p>
+      <p class="body-text approach__text-r">Ваш главный эксперт — вы&nbsp;сами. Моя цель — не&nbsp;давать готовых ответов или&nbsp;советов, а&nbsp;помочь вам найти свои собственные решения. Вместе мы&nbsp;исследуем, как&nbsp;внедрить изменения в&nbsp;вашу жизнь мягко и&nbsp;бережно, без&nbsp;насилия над&nbsp;вашим внутренним миром.</p>
     </div>
 
     <div class="approach__row approach__row--2">
@@ -120,7 +124,7 @@
           <p class="dfont ch-pretitle">помогаю</p>
           <h2 class="dfont ch-title">детям</h2>
           <p class="dfont ch-subtitle">и родителям, <br>когда им трудно</p>
-          <p class="body-text ch-intro">Работаю с&nbsp;детьми, подростками и&nbsp;родителями.<br>С малышами — через игру, с&nbsp;подростками — через психодраму, с&nbsp;родителями — через диалог, поиск и&nbsp;поддержку.</p>
+          <p class="body-text ch-intro">Работаю с&nbsp;людьми от&nbsp;2&nbsp;лет: до&nbsp;11&nbsp;лет&nbsp;— игровая терапия, центрированная на&nbsp;ребенке, от&nbsp;11&nbsp;лет&nbsp;— психодрама. И&nbsp;консультирую родителей про&nbsp;отношения с&nbsp;детьми.</p>
         </div>
         <div class="children__header-photo">
           <img src="images/photo-child-round.png" alt="Анастасия" class="ch-photo">
@@ -130,14 +134,20 @@
       <div class="children__faq">
 
         <div class="children__q children__q--illus">
-          <p class="dfont ch-q-title">Как работает игровая терапия, центрированная<br>на ребенке?</p>
+          <div class="ch-q-title-wrap">
+            <p class="dfont ch-q-title">Как работает игровая терапия, центрированная<br>на ребенке?</p>
+            <img src="images/bear-q1.png" alt="" aria-hidden="true" class="ch-bear ch-bear--1">
+          </div>
           <p class="body-text">Игра для детей — это способ рефлексии, исследования себя и&nbsp;мира. Дети говорят на&nbsp;языке игры, и&nbsp;я слушаю их через этот язык. В&nbsp;кабинете есть игрушки, краски, фигурки — все, что помогает ребенку выразить мысли и&nbsp;чувства, которые сложно передать словами. Я не&nbsp;оцениваю и&nbsp;не&nbsp;заставляю — следую за&nbsp;ребенком, создавая безопасное пространство, в&nbsp;котором он может показывать свои переживания, справляться с&nbsp;трудностями и&nbsp;находить свои решения.<br>Именно ребенок остается главным автором своей истории,<br>а&nbsp;я поддерживаю его.</p>
           <p class="body-text">Это доказательный подход, который подтвердил<br>свою эффективность множеством исследований.</p>
           <img src="images/illustration-big.png" alt="" aria-hidden="true" class="ch-illus-big">
         </div>
 
         <div class="children__q">
-          <p class="dfont ch-q-title">Как работает психодрама<br>с подростками?</p>
+          <div class="ch-q-title-wrap">
+            <p class="dfont ch-q-title">Как работает психодрама<br>с подростками?</p>
+            <img src="images/bear-q2.png" alt="" aria-hidden="true" class="ch-bear ch-bear--2">
+          </div>
           <p class="body-text">Почти также, как и&nbsp;со взрослыми людьми, но&nbsp;я учитываю возрастные особенности: физиологию, степень созревания мозга, возможности рефлексии, социальный контекст и&nbsp;тд. Исходя из&nbsp;этого подбираю более подходящие инструменты — мы можем разговаривать, рисовать или использовать предметы. Главная задача — создать пространство для исследования своих мыслей, чувств и&nbsp;переживаний. Мы вместе ищем новые способы взаимодействия с&nbsp;проблемами и&nbsp;людьми вокруг, которые подойдут подростку и&nbsp;будут более эффективны, чем прошлые.</p>
         </div>
 
@@ -188,17 +198,28 @@
       <div class="pricing__card" id="mob-adult">
         <div class="pricing__card-l">
           <p class="pricing__price">5500 ₽</p>
-          <p class="pricing__type">стоимость <br>сессии</p>
-    
+          <p class="pricing__type">Игровая терапия</p>
         </div>
         <div class="pricing__card-r">
+          <p class="pricing__desc">Дети от 3 до 11 лет,<br>консультации с родителями</p>
+          <p class="pricing__loc">Онлайн или на <a href="https://maps.google.com/?q=Кропоткинский+пер.,+4,+Москва" class="link-accent" target="_blank" rel="noopener">Кропоткинском пер., 4</a></p>
+        </div>
+      </div>
+
+      <div class="pricing__card pricing__card--psychodrama">
+        <div class="pricing__card-l">
+          <p class="pricing__price">4500 ₽</p>
+          <p class="pricing__type">Психодрама</p>
+        </div>
+        <div class="pricing__card-r">
+          <p class="pricing__desc">Работа со взрослыми<br>и подростками</p>
           <p class="pricing__loc">Онлайн или на <a href="https://maps.google.com/?q=Кропоткинский+пер.,+4,+Москва" class="link-accent" target="_blank" rel="noopener">Кропоткинском пер., 4</a></p>
         </div>
       </div>
 
       <div class="pricing__card pricing__card--group">
         <div class="pricing__card-l">
-          <p class="pricing__group-label">Групповые<br>занятия</p>
+          <p class="pricing__group-label">групповые<br>занятия</p>
         </div>
         <div class="pricing__card-r">
           <p class="pricing__desc">Некоторым детям больше помогает группа.<br>Я веду такие занятия для детей от 5 до 10 лет.<br>Про это можно узнать <a href="https://child.psychodrama.tilda.ws" class="link-accent" target="_blank" rel="noopener">здесь</a> и <a href="https://shalash.academy" class="link-accent" target="_blank" rel="noopener">здесь</a></p>
@@ -261,15 +282,15 @@
 
         <div class="edu-ribbon-wrap">
           <div class="edu-ribbon">
-            <a href="https://disk.yandex.ru/d/aqir-maTuLt4JA" target="_blank" rel="noopener"><img src="images/edu-ribbon.jpg" alt="" class="edu-ribbon-img"></a>
-            <a href="https://disk.yandex.ru/d/aqir-maTuLt4JA" target="_blank" rel="noopener"><img src="images/edu-ribbon.jpg" alt="" class="edu-ribbon-img"></a>
-            <a href="https://disk.yandex.ru/d/aqir-maTuLt4JA" target="_blank" rel="noopener"><img src="images/edu-ribbon.jpg" alt="" class="edu-ribbon-img"></a>
-            <a href="https://disk.yandex.ru/d/aqir-maTuLt4JA" target="_blank" rel="noopener"><img src="images/edu-ribbon.jpg" alt="" class="edu-ribbon-img"></a>
+            <a href="https://disk.yandex.ru/d/aqir-maTuLt4JA" target="_blank" rel="noopener"><img src="images/diplom-1.png" alt="" class="edu-ribbon-img"></a>
+            <a href="https://disk.yandex.ru/d/aqir-maTuLt4JA" target="_blank" rel="noopener"><img src="images/diplom-2.png" alt="" class="edu-ribbon-img"></a>
+            <a href="https://disk.yandex.ru/d/aqir-maTuLt4JA" target="_blank" rel="noopener"><img src="images/diplom-3.png" alt="" class="edu-ribbon-img"></a>
+            <a href="https://disk.yandex.ru/d/aqir-maTuLt4JA" target="_blank" rel="noopener"><img src="images/diplom-4.png" alt="" class="edu-ribbon-img"></a>
             <!-- дублируем для бесшовного зацикливания -->
-            <a href="https://disk.yandex.ru/d/aqir-maTuLt4JA" target="_blank" rel="noopener"><img src="images/edu-ribbon.jpg" alt="" class="edu-ribbon-img"></a>
-            <a href="https://disk.yandex.ru/d/aqir-maTuLt4JA" target="_blank" rel="noopener"><img src="images/edu-ribbon.jpg" alt="" class="edu-ribbon-img"></a>
-            <a href="https://disk.yandex.ru/d/aqir-maTuLt4JA" target="_blank" rel="noopener"><img src="images/edu-ribbon.jpg" alt="" class="edu-ribbon-img"></a>
-            <a href="https://disk.yandex.ru/d/aqir-maTuLt4JA" target="_blank" rel="noopener"><img src="images/edu-ribbon.jpg" alt="" class="edu-ribbon-img"></a>
+            <a href="https://disk.yandex.ru/d/aqir-maTuLt4JA" target="_blank" rel="noopener"><img src="images/diplom-1.png" alt="" class="edu-ribbon-img"></a>
+            <a href="https://disk.yandex.ru/d/aqir-maTuLt4JA" target="_blank" rel="noopener"><img src="images/diplom-2.png" alt="" class="edu-ribbon-img"></a>
+            <a href="https://disk.yandex.ru/d/aqir-maTuLt4JA" target="_blank" rel="noopener"><img src="images/diplom-3.png" alt="" class="edu-ribbon-img"></a>
+            <a href="https://disk.yandex.ru/d/aqir-maTuLt4JA" target="_blank" rel="noopener"><img src="images/diplom-4.png" alt="" class="edu-ribbon-img"></a>
           </div>
         </div>
 
