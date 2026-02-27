@@ -691,6 +691,7 @@ video { display: block; }
   object-fit: contain;
   pointer-events: none;
 }
+.ch-deco-mobile { display: none; }
 
 .children__q--two-col {
   flex-direction: row;
@@ -927,7 +928,6 @@ video { display: block; }
     width: 100%;
     padding-left: 0;
   }
-  /* фото: 366×319, br 68px */
   .hero__photo-wrap {
     width: 100%;
     height: 319px;
@@ -939,7 +939,6 @@ video { display: block; }
     object-fit: cover;
     object-position: center 20%;
   }
-  /* пиллы — mobile: скрываем desktop pills, показываем mobile pills */
   .hero__pills--desktop { display: none; }
   .hero__pills--mobile {
     display: flex;
@@ -960,16 +959,15 @@ video { display: block; }
   .hero__right {
     width: 100%;
     align-items: stretch;
-    gap: 10px;
+    gap: 8px;
     padding-top: 10px;
   }
-  .hero__titles { align-self: stretch; margin-left: 0; }
-  /* "Анастасия" */
+  .hero__titles { align-self: stretch; margin-left: 10px; }
   .hero__name { font-size: 49px; line-height: 1.05; }
-  /* "психолог" / "для детей и взрослых" — 30px */
-  .hero__sub  { font-size: 30px; line-height: 1.1; letter-spacing: -.3px; }
-  /* кнопка записаться: 366×159, br 900px, font 36px */
-  .btn--hero  { width: 100%; height: 159px; font-size: 36px; border-radius: 900px; padding: 13px 33px 16px; }
+  /* междустрочное уменьшено */
+  .hero__sub  { font-size: 30px; line-height: 0.85; letter-spacing: -.3px; margin-top: 4px; }
+  /* гэп между пилюлями и кнопкой такой же как между пилюлями (8px) */
+  .btn--hero  { width: 100%; height: 159px; font-size: 36px; border-radius: 900px; padding: 13px 33px 16px; margin-top: 0; }
   .hero__links { gap: 4px; align-items: center; margin-top: 0; }
   .hero__links .link-accent { font-size: 16px; }
 
@@ -977,60 +975,51 @@ video { display: block; }
   .body-text { font-size: 16px; line-height: 1.5; }
   .approach { overflow: clip; padding: 0 12px; }
 
-  /* heading: "мой" full-width row 1; "подход:" + video row 2 */
-  /* "мой"/"подход" — 63px; video-label 179×38, font 16px */
   .approach__heading {
     position: static;
     width: 100%;
     height: auto;
     padding-top: 40px;
     overflow: visible;
-    display: grid;
-    grid-template-columns: 1fr 150px;
-    grid-template-rows: auto auto;
-    column-gap: 10px;
-    row-gap: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
   }
   .approach__moy {
     position: static;
     font-size: 63px;
-    line-height: 1.2;
-    grid-column: 1 / 3;
-    grid-row: 1;
+    line-height: 0.6;
   }
   .approach__podhod {
     position: static;
     font-size: 63px;
-    line-height: 1.2;
-    grid-column: 1;
-    grid-row: 2;
-    align-self: start;
-    min-width: 0;
-    overflow: visible;
+    line-height: 0.6;
+    text-align: right;
   }
+  /* видео под заголовком: слева видео, справа подпись */
   .approach__heading-left {
     position: static;
-    grid-column: 2;
-    grid-row: 2;
     display: flex;
-    flex-direction: column;
-    gap: 6px;
-    align-self: start;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    align-self: flex-start;
+    margin-top: 16px;
   }
-  /* video 146×118 из оригинала (illustration-bird-1 размер), br 16px */
   .approach__video-box {
     width: 150px;
     height: 94px;
     border-radius: 16px;
+    flex-shrink: 0;
   }
   .approach__video-label {
     font-size: 14px;
-    width: 150px;
+    width: auto;
     line-height: 1.3;
     text-align: left;
   }
 
-  /* карточки approach: 366×253/176, br 31px, padding 21px, flex row */
+  /* карточки approach */
   .approach__row--1 {
     position: static;
     width: 100%;
@@ -1038,21 +1027,25 @@ video { display: block; }
     margin-top: 10px;
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-end;
     gap: 0;
     background: var(--btn);
     border-radius: 31px;
     padding: 21px;
   }
-  /* иллюстрация: 93×93 */
+  /* иллюстрация крупнее, не влияет на текст */
   .approach__hands {
-    position: static;
-    width: 93px;
-    height: 93px;
+    position: absolute;
+    right: 8px;
+    bottom: 8px;
+    width: 120px;
+    height: 120px;
     flex-shrink: 0;
     order: 2;
     object-fit: contain;
+    opacity: 0.5;
   }
+  .approach__row--1 { position: relative; }
   .approach__text-r {
     position: static;
     left: auto; top: auto;
@@ -1061,44 +1054,52 @@ video { display: block; }
     order: 1;
     font-size: 16px;
     line-height: 1.2;
+    position: relative;
+    z-index: 1;
   }
 
   .approach__row--2 {
-    position: static;
+    position: relative;
     width: 100%;
     height: auto;
     margin-top: 10px;
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-end;
     gap: 0;
     background: var(--btn);
     border-radius: 31px;
     padding: 21px;
   }
   .approach__text-l {
-    position: static;
+    position: relative;
+    z-index: 1;
     left: auto; top: auto;
     width: auto;
     flex: 1;
     font-size: 16px;
     line-height: 1.2;
   }
-  /* иллюстрация: 85×90 */
+  /* иллюстрация крупнее, не влияет на текст */
   .approach__bird {
-    position: static;
-    width: 85px;
-    height: 90px;
+    position: absolute;
+    right: 8px;
+    bottom: 8px;
+    width: 110px;
+    height: 116px;
     flex-shrink: 0;
     object-fit: contain;
+    opacity: 0.5;
   }
 
-  /* психодрама: 42px */
+  /* психодрама на белой карточке */
   .approach__method {
     position: static;
     width: 100%;
-    margin-top: 0;
-    padding-top: 32px;
+    margin-top: 10px;
+    padding: 24px 21px;
+    background: #fff;
+    border-radius: 31px;
   }
   .approach__method-pre {
     margin-left: 0;
@@ -1112,7 +1113,7 @@ video { display: block; }
   .approach__method-p1 {
     margin-left: 0;
     width: 100%;
-    margin-top: 16px;
+    margin-top: 8px;
     font-size: 16px;
     line-height: 1.5;
   }
@@ -1124,7 +1125,7 @@ video { display: block; }
     line-height: 1.5;
   }
 
-  /* quote: blob + text 30px */
+  /* quote */
   .approach__quote {
     position: relative;
     width: calc(100% + 24px);
@@ -1142,7 +1143,6 @@ video { display: block; }
     width: 100%; height: 100%;
     object-fit: cover;
   }
-  /* quote текст: 30px */
   .approach__quote-text {
     position: relative;
     z-index: 1;
@@ -1154,7 +1154,7 @@ video { display: block; }
     left: auto; top: auto;
   }
 
-  /* CTA кнопки: 366×185, br 40px, padding 60px 0 49px, font 28px */
+  /* CTA аккордеоны */
   .approach__ctas {
     position: static;
     width: 100%;
@@ -1166,7 +1166,8 @@ video { display: block; }
   }
   .btn--secondary {
     width: 100%;
-    height: 185px;
+    height: auto;
+    min-height: 185px;
     font-size: 28px;
     border-radius: 40px;
     padding: 60px 0 49px;
@@ -1174,6 +1175,7 @@ video { display: block; }
     gap: 0;
     align-items: center;
     justify-content: flex-start;
+    overflow: hidden;
   }
   .btn--secondary .cta-label {
     display: block;
@@ -1184,26 +1186,35 @@ video { display: block; }
     height: 28px;
     margin-top: 10px;
   }
+  /* раскрытое состояние аккордеона — убираем max-height ограничение */
+  .btn--secondary[aria-expanded="true"] {
+    height: auto;
+    min-height: auto;
+    overflow: visible;
+  }
+  .btn--secondary[aria-expanded="true"] .cta-body {
+    max-height: none;
+  }
 
   /* ── CHILDREN ── */
-  .white-block { border-radius: 50px; position: relative; z-index: 1; }
+  .white-block { border-radius: 80px; position: relative; z-index: 1; }
   .children__wrap { padding: 0 12px 40px; }
   .children__header { flex-direction: column; gap: 0; }
   .children__header-text { width: 100%; order: 2; padding-top: 20px; }
   .children__header-photo { order: 1; }
-  /* фото: 333×319, br 100px */
   .ch-photo    { width: 100%; height: 319px; border-radius: 100px; object-fit: cover; object-position: center top; }
-  /* "помогаю" — 32px Gothic60 */
-  .ch-pretitle { font-size: 32px; line-height: 1.1; padding-left: 0; }
-  /* "детям" — 84px Gothic60 */
+  .ch-pretitle { font-size: 32px; line-height: 1.1; padding-left: 10px; }
   .ch-title    { font-size: 84px; line-height: 1; }
-  /* "и родителям, когда им трудно" — 24px Gothic60 */
-  .ch-subtitle { font-size: 24px; line-height: 1.2; }
+  .ch-subtitle { font-size: 24px; line-height: 1.2; padding-left: 30px; }
   .ch-intro    { width: 100%; font-size: 16px; line-height: 1.5; margin-top: 12px; }
+
+  /* иллюстрации 2x */
+  .ch-bear--1 { width: 200px; height: 140px; }
+  .ch-bear--2 { width: 180px; height: 192px; }
+  .bullet-icon { width: 36px; height: 36px; }
 
   .children__faq { padding-top: 32px; }
   .children__q { padding-top: 28px; gap: 12px; }
-  /* FAQ заголовки — 24px Gothic60 */
   .ch-q-title  { font-size: 24px; line-height: 1.2; width: 100%; }
   .children__q .body-text { width: 100%; font-size: 16px; line-height: 1.5; }
   .children__q--two-col { flex-direction: column; gap: 12px; }
@@ -1215,33 +1226,45 @@ video { display: block; }
   .children__parents .ch-q-title { width: 100%; font-size: 24px; }
   .children__parents .body-text { width: 100%; font-size: 16px; line-height: 1.5; }
 
-  .children__consult { position: static; min-height: auto; padding-top: 28px; }
+  /* consult: blob behind text + flower decoration below */
+  .children__consult { position: relative; min-height: auto; padding-top: 28px; overflow: hidden; }
   .ch-deco { display: none; }
-  .ch-blob { display: none; }
-  .ch-consult-text { position: static; width: 100%; font-size: 16px; line-height: 1.5; }
+  .ch-blob {
+    display: block;
+    position: relative;
+    left: auto; top: auto;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    z-index: 0;
+  }
+  .ch-consult-text { position: relative; z-index: 1; width: 100%; font-size: 16px; line-height: 1.5; }
+  .ch-deco-mobile {
+    display: block;
+    position: relative;
+    width: 80%;
+    height: auto;
+    margin: 16px auto 0;
+    object-fit: contain;
+  }
+  .ch-illus-big--desktop { display: none; }
 
   /* ── PRICING ── */
-  /* карточки: 371×315/122, br 40px */
-  .pricing__wrap  { margin: 0 12px; padding-top: 32px; padding-bottom: 40px; }
+  .pricing__wrap  { margin: 0 12px; padding-top: 32px; padding-bottom: 20px; }
   .pricing__deco  { display: none; }
-  /* "стоимость" — 24px Gothic60 */
-  .pricing__title { font-size: 24px; margin-top: 0; letter-spacing: 0; }
+  .pricing__title { font-size: 24px; margin-top: 0; margin-bottom: 15px; letter-spacing: 0; }
   .pricing__card  { flex-direction: column; align-items: flex-start; padding: 32px 33px; min-height: auto; border-radius: 40px; }
   .pricing__card-l { padding-left: 0; width: 100%; }
   .pricing__card-r { margin-top: 8px; width: 100%; }
-  /* цена: 36px Geologica */
   .pricing__price { font-size: 36px; line-height: 1.1; }
-  /* тип сессии: 24px Geologica */
   .pricing__type  { font-size: 24px; line-height: 1.3; margin-top: 4px; }
-  /* описание/локация: 24px */
   .pricing__desc, .pricing__loc { font-size: 24px; line-height: 1.3; }
   .pricing__card--group { padding: 32px 33px; flex-direction: column; align-items: flex-start; }
-  /* "групповые занятия" — Geologica 36px */
   .pricing__group-label { font-size: 36px; line-height: 1.2; font-family: 'Geologica', sans-serif; font-weight: 200; }
   .pricing__card--group .pricing__card-r { margin-top: 16px; }
-  /* кнопка записаться в pricing: 371×122, br 40px, font 36px */
-  .btn--cta-card { height: 122px; font-size: 36px; border-radius: 40px; }
-  .pricing__card--cta { min-height: 122px; border-radius: 40px; }
+  /* кнопка записаться — сильнее скругление */
+  .btn--cta-card { height: 122px; font-size: 36px; border-radius: 900px; }
+  .pricing__card--cta { min-height: 122px; border-radius: 900px; }
 }
 
 /* ────────────────────────────────────────────
@@ -1292,9 +1315,6 @@ video { display: block; }
   .hero__sub  { font-size: 26px; }
   .btn--hero  { font-size: 30px; height: 130px; }
   .approach__moy, .approach__podhod { font-size: 54px; }
-  .approach__heading { grid-template-columns: 1fr 150px; }
-  .approach__video-box { width: 150px; height: 94px; }
-  .approach__video-label { width: 150px; }
   .approach__psychodrama { font-size: 38px; }
   .approach__quote-text { font-size: 26px; }
   .ch-title { font-size: 70px; }
