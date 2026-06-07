@@ -59,12 +59,15 @@
     <div class="approach__heading">
       <p class="approach__moy dfont">мой</p>
       <div class="approach__heading-left">
-        <div class="approach__video-box">
-          <video autoplay muted loop playsinline poster="">
-            <source src="images/video-background.mp4" type="video/mp4">
+        <div class="approach__video-box js-video-card">
+          <video class="approach__video" poster="images/approach-video-poster.jpg" preload="metadata" playsinline>
+            <source src="videos/approach.mp4" type="video/mp4">
           </video>
+          <button class="approach__video-play" type="button" aria-label="Воспроизвести видео">
+            <img src="images/iconplay.svg" alt="">
+          </button>
         </div>
-        <p class="approach__video-label">видео или текстом,<br class="mobile-br"> как вам удобнее</p>
+        <p class="approach__video-label">две минуты от первого лица<br class="mobile-br"> </p>
       </div>
       <p class="approach__podhod dfont">подход:</p>
     </div>
@@ -178,7 +181,7 @@
         <div class="children__consult">
           <img src="images/consult-blob.png" alt="" aria-hidden="true" class="ch-blob">
           <img src="images/text-decoration.png" alt="" aria-hidden="true" class="ch-deco">
-          <p class="body-text ch-consult-text">Ко&nbsp;мне можно прийти на&nbsp;консультацию по&nbsp;любым вопросам, связанным с&nbsp;ребенком. Я помогу сформулировать сложность и&nbsp;простроить план <br>ее решения. Даже если не&nbsp;понадобится дальнейшая терапевтическая работа с&nbsp;ребенком <br>или подростком.</p>
+          <p class="body-text ch-consult-text">Ко&nbsp;мне можно прийти на&nbsp;консультацию по&nbsp;любым вопросам, связанным с&nbsp;ребенком.<br class="consult-mobile-break"> Я помогу сформулировать сложность и&nbsp;простроить план ее решения. Даже если не&nbsp;понадобится дальнейшая терапевтическая работа с&nbsp;ребенком или подростком.</p>
           <img src="images/text-decoration.png" alt="" aria-hidden="true" class="ch-deco-mobile">
         </div>
 
@@ -238,7 +241,7 @@
 
   <!-- FOOTER -->
   <footer class="footer">
-    <p>дизайн и вёрстка <a href="https://mxml.sn" class="link-accent" target="_blank" rel="noopener">mxml.sn</a></p>
+    <p>дизайн сайта <a href="https://mxml.sn" class="link-accent" target="_blank" rel="noopener">@mxmlsn</a></p>
   </footer>
 
   <!-- POPUP: образование -->

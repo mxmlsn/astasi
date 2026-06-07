@@ -42,6 +42,28 @@
   updateActive();
 })();
 
+// Video card: play on click and reveal native controls
+(function () {
+  const cards = document.querySelectorAll('.js-video-card');
+
+  cards.forEach(card => {
+    const video = card.querySelector('video');
+    const play = card.querySelector('.approach__video-play');
+    if (!video || !play) return;
+
+    function startVideo() {
+      video.controls = true;
+      card.classList.add('is-playing');
+      video.play().catch(() => {
+        card.classList.remove('is-playing');
+        video.controls = false;
+      });
+    }
+
+    play.addEventListener('click', startVideo);
+  });
+})();
+
 // Popups: образование / обо мне
 (function () {
   const triggers = document.querySelectorAll('[data-popup]');
